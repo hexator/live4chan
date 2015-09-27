@@ -27,7 +27,7 @@ var highlighted_convos = ["General"];
 var start_press; // for long press detection
 var longpress = 400;
 
-var admins = ["Status","!!bY9eS7p/CE"]; // first trip here is used for server status posts
+var admins = ["Status","!!bY9eS7p/CE", "!!Au.T9kPoPU"]; // first trip here is used for server status posts
 var devs = ["!/b/suPrEmE", "!!3xVuTKubFw", "!!8Trs3SaoJ2"];
 /* if you look at source you are essentially helping out, so have some blue colored trips! --> bluerules, testing */
 var default_contribs = ["!!Tia6BuxIxc"];
