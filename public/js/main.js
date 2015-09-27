@@ -642,7 +642,7 @@ function submit_chat() {
         cool_down_timer+=14;
 
     last_post = $("#body").val();
-    if (get_cookie("password_livechan") === '') {
+    if (get_cookie("password_livebunker") === '') {
         submit_captcha();
         $("#submit_button").prop("value", "Submit (Auto)");
         auto_post = true;

@@ -1463,7 +1463,7 @@ function set_channel(new_channel, new_post, no_push_state, tab) {
         });
     }
 
-    if (new_channel !== "home" && new_channel !== "all" && get_cookie("password_livechan") === '') {
+    if (new_channel !== "home" && new_channel !== "all" && get_cookie("password_livebunker") === '') {
         submit_captcha();
     }
 }
