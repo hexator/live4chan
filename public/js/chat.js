@@ -1370,7 +1370,7 @@ function set_channel(new_channel, new_post, no_push_state, tab) {
     // indicate new channel
     $('#board_select').val(new_channel);
     $('#comment-form').attr('action', '/chat/' + new_channel);
-    title = "livechan" + (new_channel === "home" ? "" : " - /" + new_channel);
+    title = "livebunker" + (new_channel === "home" ? "" : " - /" + new_channel);
     window.document.title = title;
 
     // hide form, sidebar on /home, /all pages
