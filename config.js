@@ -1,6 +1,6 @@
 module.exports = {
     boards: [
-        'all', 'int', 'operate', 'tg', 'v'
+        'all', 'int', 'operate', 'sp', 'tg', 'v'
     ],
 
     all_fields: 'chat name body convo convo_id count date trip',
