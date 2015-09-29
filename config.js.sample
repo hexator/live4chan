@@ -30,5 +30,8 @@ module.exports = {
     codec_names: {
         video: ['theora', 'vp8', 'vp9'],
         audio: ['vorbis', 'libopus']
-    }
+    },
+
+    /* Set to 1 if you want an IRC server, 0 otherwise */
+    irc_server: 0    
 };
