@@ -15,19 +15,18 @@
 
 </head>
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="/js/query.min.js"><\/script>')</script>
+    <script src ="/js/settings.js"></script>
+
 	<header class="header">
-		<select id="board_select" class="input_select left_float">
-<!-- TODO: this should dynamically be read from a database -->
-			<option value="home">Home</option>
-			<option value="int">/int - (internat.)</option>
-			<option value="operate">/operate - (Livebunker Operation)</option>
-			<option value="sp">/sp - (sports)</option>
-			<option value="tg">/tg - (traditional gaming)</option>
-			<option value="v">/v - (vidya)</option>
-		</select>
-        <span id="user_count" class="left_float" style="padding-left:5px;"></span>
-        <span id="tabs"class="left_float"></span>
-		<button id="settings_button" class="right_float">Settings</button>
+            <!-- all but Home are filled in via settings.js -->
+            <select id="board_select" class="input_select left_float">
+		<option value="home">Home</option>
+	     </select>
+             <span id="user_count" class="left_float" style="padding-left:5px;"></span>
+             <span id="tabs"class="left_float"></span>
+	     <button id="settings_button" class="right_float">Settings</button>
 	</header>
 	<nav class="settings_nav hidden">
 		<ul class="settings_list">
@@ -157,8 +156,6 @@
 		<script src="/plugins/code_highlight/highlight.min.js"></script>
 		<script src="/plugins/webcamjs/webcam.min.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-		<script>!window.jQuery && document.write('<script src="/js/query.min.js"><\/script>')</script>
 		<script src="/js/socket.io-stream.min.js"></script>
         <script src="/js/chat.js"></script>
         <script src="/js/stream/sha256.js"></script>
