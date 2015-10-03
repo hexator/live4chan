@@ -557,7 +557,7 @@ function generate_post(id) {
     post.find(".chat_number")
         .text(id)
            .click(function () {
-            if (chat_id === "all") {
+            if (chat_id === "all" || chat_id === "moderate") {
                 set_channel(chat[id].chat, chat[id].count);
             }
             quote(id);
@@ -713,7 +713,7 @@ function update_chat(new_data, first_load) {
     }
 
     // Populate post element with new/changed fields
-    if (changed.chat && chat_id === "all") {
+    if (changed.chat && (chat_id === "all" || chat_id === "moderate")) {
         post.find(".chat_label")
             .css("display", "inline")
             .attr("href", "/chat/" + data.chat + "#" + id)
@@ -1213,8 +1213,16 @@ function apply_filter(posts) {
         }, true);
     } else if (value === "filter"){*/
         posts.toggleClass(function () {
-            var id = parseInt(this.id.match(/\d+/)[0], 10);
-            return ($.inArray(chat[id].convo, highlighted_convos) > -1) ? '' : 'chat_hidden';
+            if (chat_id === "moderate")
+            {
+                // For moderation show chat from all conversations
+                return '';
+            }
+            else
+            {
+                var id = parseInt(this.id.match(/\d+/)[0], 10);
+                return ($.inArray(chat[id].convo, highlighted_convos) > -1) ? '' : 'chat_hidden';
+            }
         }, true);
    // }
 }
@@ -1373,8 +1381,8 @@ function set_channel(new_channel, new_post, no_push_state, tab) {
     title = "livebunker" + (new_channel === "home" ? "" : " - /" + new_channel);
     window.document.title = title;
 
-    // hide form, sidebar on /home, /all pages
-    var show_form = (new_channel !== "all" && new_channel !== "home");
+    // hide form, sidebar on /home, /all, /moderate  pages
+    var show_form = (new_channel !== "all" && new_channel !== "home" && new_channel !== "moderate");
     $('.chats_container').toggleClass('chats_container_home', !show_form);
     $('.chats').toggleClass('chats_connected', show_form);
     $('.create, .sidebar, .alert_div').toggleClass('shown', show_form);
@@ -1463,7 +1471,7 @@ function set_channel(new_channel, new_post, no_push_state, tab) {
         });
     }
 
-    if (new_channel !== "home" && new_channel !== "all" && get_cookie("password_livebunker") === '') {
+    if (new_channel !== "home" && new_channel !== "all" && new_channel !== "moderate" && get_cookie("password_livebunker") === '') {
         submit_captcha();
     }
 }
