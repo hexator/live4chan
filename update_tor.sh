@@ -4,9 +4,8 @@
 #
 #
 
-#IP_ADDRESS=$(/sbin/ifconfig eth0 | awk '/inet addr/ {split ($2,A,":"); print A[2]}')
-IP_ADDRESS="74.207.251.174"
-LB_DIR=/home/hexator/Projects/live4chan
+IP_ADDRESS=$(/sbin/ifconfig eth0 | awk '/inet addr/ {split ($2,A,":"); print A[2]}')
+LB_DIR=
 LB_TMP_DIR=$LB_DIR/tmp
 
 wget -q -O - "https://check.torproject.org/cgi-bin/TorBulkExitList.py?ip=$IP_ADDRESS&port=80" -U NoSuchBrowser/1.0 > $LB_TMP_DIR/tor_nodes.tmp
