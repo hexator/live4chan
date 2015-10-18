@@ -760,7 +760,7 @@ function update_chat(new_data, first_load) {
                         post.find(".flag").prepend(country);
                         break;
 
-                    case "!dlRr5Ro0Ok"
+                    case "!dlRr5Ro0Ok":
                     var country = $("<img src='/icons/countries/UN.png'/>");
                     country_name = "Useless Nuisances";
                     post.find(".flag").attr("data-country", country_name);
