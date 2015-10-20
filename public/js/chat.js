@@ -33,7 +33,7 @@ var devs = ["!/b/suPrEmE", "!!3xVuTKubFw", "!!8Trs3SaoJ2"];
 var default_contribs = ["!!Tia6BuxIxc"];
 var bots = ["!!.w5vzYxkv6","!!RG5a8fLuMM"];
 var irc = ["!!SxKC741YKw"];
-var hidden_trips = ["!7cNl93Dbb6", "!9jPA5pCF9c", "!xeE5csyhAE", "!RQ1r/nUdfw", "!We.UHNdLy.", "!depDNizZTI", "!dlRr5Ro0Ok"];
+var hidden_trips = ["!7cNl93Dbb6", "!9jPA5pCF9c", "!xeE5csyhAE", "!RQ1r/nUdfw", "!We.UHNdLy.", "!depDNizZTI", "!dlRr5Ro0Ok", "!kmLKq34O/c"];
 var special_trips = bots.concat(irc).concat(hidden_trips);
 var my_ids = [];
 var contribs = default_contribs;
@@ -755,10 +755,19 @@ function update_chat(new_data, first_load) {
                     case "!depDNizZTI":
                         var country = $("<img src='/icons/countries/VA.png'/>");
 
+                        country_name = "Mater Ecclesia Sancta";
+                        post.find(".flag").attr("data-country", country_name);
+                        post.find(".flag").prepend(country);
+                        break;
+
+                    case "!kmLKq34O/c":
+                        var country = $("<img src='/icons/countries/deusvult.png'/>");
+
                         country_name = "DEUS VULT";
                         post.find(".flag").attr("data-country", country_name);
                         post.find(".flag").prepend(country);
                         break;
+                    
 
                     case "!dlRr5Ro0Ok":
                     var country = $("<img src='/icons/countries/UN.png'/>");
