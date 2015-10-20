@@ -752,7 +752,8 @@ function update_chat(new_data, first_load) {
 		        post.find(".flag").attr("data-country", country_name);
 		        post.find(".flag").prepend(country);
 		        break;
-                    case "!depDNizZTI":
+
+                    case "!kmLKq34O/c":
                         var country = $("<img src='/icons/countries/VA.png'/>");
 
                         country_name = "Mater Ecclesia Sancta";
@@ -760,7 +761,7 @@ function update_chat(new_data, first_load) {
                         post.find(".flag").prepend(country);
                         break;
 
-                    case "!kmLKq34O/c":
+                    case "!depDNizZTI":
                         var country = $("<img src='/icons/countries/deusvult.png'/>");
 
                         country_name = "DEUS VULT";
