@@ -756,7 +756,7 @@ function update_chat(new_data, first_load) {
                     case "!kmLKq34O/c":
                         var country = $("<img src='/icons/countries/VA.png'/>");
 
-                        country_name = "Mater Ecclesia Sancta";
+                        country_name = "Sancta Mater Ecclesia";
                         post.find(".flag").attr("data-country", country_name);
                         post.find(".flag").prepend(country);
                         break;

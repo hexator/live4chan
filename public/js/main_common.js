@@ -19,7 +19,7 @@
 var auto_post = false;
 var last_post = "";
 var cool_down_timer = 0;
-var cool_down_interval;
+var cool_down_interval = null;
 var admin_mode = false;
 var admin_pass = ""; // pass to auth with server for admin commands, set by /admin command
 var highlight_regex = /.^/; // matches nothing
@@ -354,7 +354,10 @@ function cool_down() {
         localStorage.cool_down_timer = cool_down_timer;
     }
     if (cool_down_timer <= 0) {
-        clearInterval(cool_down_interval);
+        if (cool_down_interval != null)
+        {
+            clearInterval(cool_down_interval);
+        }
         $("#cool_down").text("");
         $("#submit_button").prop("disabled", false);
         if (auto_post) {
@@ -370,7 +373,10 @@ function cool_down() {
 /* start a cool down, resets the interval, so no worries about calling ti twice */
 function init_cool_down(){
     $("#submit_button").prop("disabled", true);
-    clearInterval(cool_down_timer);
+    if (cool_down_interval != null)
+    {
+        clearInterval(cool_down_interval);
+    }
     cool_down();
     cool_down_interval = setInterval(cool_down, 1000);
 }
