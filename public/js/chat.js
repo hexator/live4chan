@@ -106,7 +106,7 @@ flags_image_table["!LnQhPD6x2M"]    = "bait.png";
 flags_hover_strings["!LnQhPD6x2M"]  = "He's going all out";
 
 flags_image_table["!hLMjfnK5wE"]    = "bane.jpg";
-flags_hover_strings["!hLMjfnK5wE"]  = "Big guy 4U";
+flags_hover_strings["!hLMjfnK5wE"]  = "4U";
 
 flags_image_table["!Kd.HbN.K5U"]    = "elf.png";
 flags_hover_strings["!Kd.HbN.K5U"]  = "Elffag";
@@ -116,6 +116,9 @@ flags_hover_strings["!2qYdimqiHs"]  = "Don't forget about /rocks/!";
 
 flags_image_table["!bQDebg4.vI"]   = "rocks2.jpg";
 flags_hover_strings["!bQDebg4.vI"] = "Don't forget about /rocks/!";
+
+flags_image_table["!tkjPQE5fDo"]   = "CIA.png";
+flags_hover_strings["!tkjPQE5fDo"] = "You're a big guy."
 
 var hidden_trips = [
     "!xeE5csyhAE", // fascist
@@ -139,7 +142,8 @@ var hidden_trips = [
     "!hLMjfnK5wE", // bane
     "!Kd.HbN.K5U", // elf
     "!2qYdimqiHs", // rocks
-    "!bQDebg4.vI"  // rocks2
+    "!bQDebg4.vI", // rocks2
+    "!tkjPQE5fDo"  // cia
 ];
 var special_trips = bots.concat(irc).concat(hidden_trips);
 var my_ids = [];
