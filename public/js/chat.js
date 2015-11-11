@@ -111,6 +111,9 @@ flags_hover_strings["!hLMjfnK5wE"]  = "Big guy 4U";
 flags_image_table["!Kd.HbN.K5U"]    = "elf.png";
 flags_hover_strings["!Kd.HbN.K5U"]  = "Elffag";
 
+flags_image_table["!2qYdimqiHs"]    = "rocks.jpg";
+flags_hover_strings["!2qYdimqiHs"]  = "Don't forget about /rocks/!";
+
 var hidden_trips = [
     "!xeE5csyhAE", // fascist
     "!RQ1r/nUdfw", // gay
@@ -131,7 +134,8 @@ var hidden_trips = [
     "!sGCcOnd0Is", // delete
     "!LnQhPD6x2M", // bait
     "!hLMjfnK5wE", // bane
-    "!Kd.HbN.K5U"  // elf
+    "!Kd.HbN.K5U", // elf
+    "!2qYdimqiHs"  // rocks
 ];
 var special_trips = bots.concat(irc).concat(hidden_trips);
 var my_ids = [];
