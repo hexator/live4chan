@@ -117,7 +117,7 @@ flags_hover_strings["!2qYdimqiHs"]  = "Don't forget about /rocks/!";
 flags_image_table["!bQDebg4.vI"]   = "rocks2.jpg";
 flags_hover_strings["!bQDebg4.vI"] = "Don't forget about /rocks/!";
 
-flags_image_table["!tkjPQE5fDo"]   = "CIA.png";
+flags_image_table["!tkjPQE5fDo"]   = "CIA.jpg";
 flags_hover_strings["!tkjPQE5fDo"] = "You're a big guy."
 
 var hidden_trips = [
