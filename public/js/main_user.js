@@ -62,10 +62,10 @@ function user_setup()
         handle_post_response(resp);
     });
 
-	// ensure files are no greater than 5mb
+	// ensure files are no greater than 10mb
     $("#image").bind('change', function() {
-		if (this.files[0].size > 8000000){
-			div_alert("File too large. 8MB is the maximum file size.");
+		if (this.files[0].size > 10000000){
+			div_alert("File too large. 10MB is the maximum file size.");
 			clear_file_field();
 		}
 	});

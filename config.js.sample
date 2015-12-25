@@ -25,12 +25,12 @@ module.exports = {
 
     /* Supported file types */
     image_formats: ['jpg', 'jpeg', 'png', 'gif'],
-    video_formats: ['ogv', 'webm'],
+    video_formats: ['ogv', 'webm', 'mp4'],
     audio_formats: ['ogg'],
 
     codec_names: {
-        video: ['theora', 'vp8', 'vp9'],
-        audio: ['vorbis', 'libopus']
+        video: ['theora', 'vp8', 'vp9', 'h264'],
+        audio: ['vorbis', 'libopus', 'aac']
     },
 
     /* Set to 1 if you want an IRC server, 0 otherwise */

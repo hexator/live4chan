@@ -44,7 +44,7 @@ var flags_hover_strings = {};
 flags_image_table["!xeE5csyhAE"]    = "FASC.png";
 flags_hover_strings["!xeE5csyhAE"]  = "Fascist";
 
-// gay
+// noflag
 flags_image_table["!RQ1r/nUdfw"]    = "GAY.png";
 flags_hover_strings["!RQ1r/nUdfw"]  ="Hidden With Pride"
 
@@ -122,7 +122,7 @@ flags_hover_strings["!tkjPQE5fDo"] = "You're a big guy."
 
 var hidden_trips = [
     "!xeE5csyhAE", // fascist
-    "!RQ1r/nUdfw", // gay
+    "!RQ1r/nUdfw", // noflag
     "!depDNizZTI", // deusvult
     "!dlRr5Ro0Ok", // useless
     "!kmLKq34O/c", // tuespetrus
@@ -312,7 +312,7 @@ function image_mouseover(obj, event, id) {
     var base_name = chat[id].image.match(/[\w\-\.]*$/)[0];
 
     var extension = base_name.match(/\w*$/)[0];
-    if ($.inArray(extension, ["ogv", "webm"]) > -1) {
+    if ($.inArray(extension, ["ogv", "webm", "mp4"]) > -1) {
         if (display === undefined) {
             display = $("<video/>");
         }
