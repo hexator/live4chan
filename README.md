@@ -84,13 +84,17 @@ If you do not want audio/video support, you should edit your [config.js](https:/
 
     chmod 777 public/tmp/uploads public/tmp/thumb
 
-12) Set the admin password
+12) Copy the config.js.sample file to config.js and edit the configuration
+  
+    cp config.js.sample config.js
+
+13) Set the admin password
 
     node lib/set-password.js
 
 This is used for the admin commands to delete/change posts and ban users.
 
-13) Run LiveChan
+14) Run LiveChan
 
     npm start
 

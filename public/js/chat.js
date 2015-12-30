@@ -27,13 +27,124 @@ var highlighted_convos = ["General"];
 var start_press; // for long press detection
 var longpress = 400;
 
-var admins = ["Status","!!rr1C6aJjtk", "!!hSdTJ81KjY", "!!/3R6pgOFdo", "!!Q9nUUthOWU"]; // first trip here is used for server status posts
+var admins = ["Status","!!bY9eS7p/CE", "!!Au.T9kPoPU", "!!8zB53ly85c"]; // first trip here is used for server status posts
 var devs = ["!/b/suPrEmE", "!!3xVuTKubFw", "!!8Trs3SaoJ2"];
 /* if you look at source you are essentially helping out, so have some blue colored trips! --> bluerules, testing */
 var default_contribs = ["!!Tia6BuxIxc"];
 var bots = ["!!.w5vzYxkv6","!!RG5a8fLuMM"];
 var irc = ["!!SxKC741YKw"];
-var hidden_trips = ["!7cNl93Dbb6", "!9jPA5pCF9c", "!xeE5csyhAE", "!RQ1r/nUdfw", "!We.UHNdLy."];
+
+/*
+ * Table of tripflags
+ */
+var flags_image_table  = {};
+var flags_hover_strings = {};
+
+// fascist
+flags_image_table["!xeE5csyhAE"]    = "FASC.png";
+flags_hover_strings["!xeE5csyhAE"]  = "Fascist";
+
+// noflag
+flags_image_table["!RQ1r/nUdfw"]    = "GAY.png";
+flags_hover_strings["!RQ1r/nUdfw"]  ="Hidden With Pride"
+
+// deusvult
+flags_image_table["!depDNizZTI"]    = "stgeorge.png";
+flags_hover_strings["!depDNizZTI"]  = "DEUS VULT";
+
+// useless
+flags_image_table["!dlRr5Ro0Ok"]    = "UN.png";
+flags_hover_strings["!dlRr5Ro0Ok"]  = "Useless Nuisances";
+
+// tuespetrus
+flags_image_table["!kmLKq34O/c"]    = "VA.png";
+flags_hover_strings["!kmLKq34O/c"]  = "Sancta Mater Ecclesia";
+
+// caltrop
+flags_image_table["!vDAMtNl/1E"]    = "caltrop.png";
+flags_hover_strings["!vDAMtNl/1E"]  = "I hope you step on one";
+
+// linux
+flags_image_table["!UyDUsdVyxo"]    = "linux.png";
+flags_hover_strings["!UyDUsdVyxo"]  = "Free as in freedom";
+
+// google
+flags_image_table["!26Zf504quw"]    = "google.png";
+flags_hover_strings["!26Zf504quw"]  = "Corporate shill";
+
+// blizzacct
+flags_image_table["!ct.7nYqrdM"] = "blizzacct.png";
+flags_hover_strings["!ct.7nYqrdM"] = "A fool and his money";
+
+// fbikun
+flags_image_table["!V8rJANBJ4M"] = "fbikun.png";
+flags_hover_strings["!V8rJANBJ4M"] = "I am not a federal employee";
+
+// reddit
+flags_image_table["!Wb0VYQHX5M"]    = "reddit.png";
+flags_hover_strings["!Wb0VYQHX5M"]  = "Plebbit seal of approval";
+
+flags_image_table["!ONk14TfQNk"]    = "4chan.png";
+flags_hover_strings["!ONk14TfQNk"]  = "Literal cuck";
+
+flags_image_table["!QSkhN.pvDE"]    = "morality.jpg";
+flags_hover_strings["!QSkhN.pvDE"]  = "Britain's Obituarist";
+
+flags_image_table["!mhkWEu/Vs6"]    = "UKIP.png";
+flags_hover_strings["!mhkWEu/Vs6"]  = "Saviour of Britain";
+
+flags_image_table["!NjRE0r38HE"]    = "EUSSR.png";
+flags_hover_strings["!NjRE0r38HE"]  = "Progressive Islamic Caliphate of Yurop";
+
+flags_image_table["!XBzzOrXmuM"]    = "snaek.png";
+flags_hover_strings["!XBzzOrXmuM"]  = "le snaek of smal govermat an liberdi";
+
+flags_image_table["!sGCcOnd0Is"]    = "delete.jpg";
+flags_hover_strings["!sGCcOnd0Is"]  = "DELETE THIS PLS OFFENSE";
+
+flags_image_table["!LnQhPD6x2M"]    = "bait.png";
+flags_hover_strings["!LnQhPD6x2M"]  = "He's going all out";
+
+flags_image_table["!hLMjfnK5wE"]    = "bane.jpg";
+flags_hover_strings["!hLMjfnK5wE"]  = "4U";
+
+flags_image_table["!Kd.HbN.K5U"]    = "elf.png";
+flags_hover_strings["!Kd.HbN.K5U"]  = "Elffag";
+
+flags_image_table["!2qYdimqiHs"]    = "rocks.jpg";
+flags_hover_strings["!2qYdimqiHs"]  = "Don't forget about /rocks/!";
+
+flags_image_table["!bQDebg4.vI"]   = "rocks2.jpg";
+flags_hover_strings["!bQDebg4.vI"] = "Don't forget about /rocks/!";
+
+flags_image_table["!tkjPQE5fDo"]   = "CIA.jpg";
+flags_hover_strings["!tkjPQE5fDo"] = "You're a big guy."
+
+var hidden_trips = [
+    "!xeE5csyhAE", // fascist
+    "!RQ1r/nUdfw", // noflag
+    "!depDNizZTI", // deusvult
+    "!dlRr5Ro0Ok", // useless
+    "!kmLKq34O/c", // tuespetrus
+    "!vDAMtNl/1E", // caltrop
+    "!UyDUsdVyxo", // linux
+    "!26Zf504quw", // google
+    "!ct.7nYqrdM", // blizzacct
+    "!V8rJANBJ4M", // fbikun
+    "!Wb0VYQHX5M", // reddit
+    "!ONk14TfQNk", // 4chan
+    "!QSkhN.pvDE", // morality
+    "!mhkWEu/Vs6", // UKIP
+    "!NjRE0r38HE", // EUSSR
+    "!XBzzOrXmuM", // snaek
+    "!sGCcOnd0Is", // delete
+    "!LnQhPD6x2M", // bait
+    "!hLMjfnK5wE", // bane
+    "!Kd.HbN.K5U", // elf
+    "!2qYdimqiHs", // rocks
+    "!bQDebg4.vI", // rocks2
+    "!tkjPQE5fDo"  // cia
+];
 var special_trips = bots.concat(irc).concat(hidden_trips);
 var my_ids = [];
 var contribs = default_contribs;
@@ -201,7 +312,7 @@ function image_mouseover(obj, event, id) {
     var base_name = chat[id].image.match(/[\w\-\.]*$/)[0];
 
     var extension = base_name.match(/\w*$/)[0];
-    if ($.inArray(extension, ["ogv", "webm"]) > -1) {
+    if ($.inArray(extension, ["ogv", "webm", "mp4"]) > -1) {
         if (display === undefined) {
             display = $("<video/>");
         }
@@ -557,7 +668,7 @@ function generate_post(id) {
     post.find(".chat_number")
         .text(id)
            .click(function () {
-            if (chat_id === "all") {
+            if (chat_id === "all" || chat_id === "moderate") {
                 set_channel(chat[id].chat, chat[id].count);
             }
             quote(id);
@@ -713,7 +824,7 @@ function update_chat(new_data, first_load) {
     }
 
     // Populate post element with new/changed fields
-    if (changed.chat && chat_id === "all") {
+    if (changed.chat && (chat_id === "all" || chat_id === "moderate")) {
         post.find(".chat_label")
             .css("display", "inline")
             .attr("href", "/chat/" + data.chat + "#" + id)
@@ -738,46 +849,33 @@ function update_chat(new_data, first_load) {
 	        country_name = "IRC";
 	        post.find(".flag").attr("data-country", country_name);
 	        post.find(".flag").prepend(country);
-	    } else if (hidden_trips.indexOf(data.trip) > -1) {
-	    	switch (data.trip) {
-	    	case "!xeE5csyhAE":
-	    		var country = $("<img src='/icons/countries/FASC.png'/>");
-		        country_name = "Fascist";
-		        post.find(".flag").attr("data-country", country_name);
-		        post.find(".flag").prepend(country);
-		        break;
-		    case "!RQ1r/nUdfw":
-		    	var country = $("<img src='/icons/countries/GAY.png'/>");
-		        country_name = "Hidden With Pride";
-		        post.find(".flag").attr("data-country", country_name);
-		        post.find(".flag").prepend(country);
-		        break;
-		    default:
-		    		//post.find(".name_part").style("font-weight", "300");
-		    		break;
-	    	}
-    		
+	} else if (hidden_trips.indexOf(data.trip) > -1) {
+            if ((data.trip in flags_image_table) && (data.trip in flags_hover_strings)) {
+                var country = $("<img src='/icons/tripflags/" + flags_image_table[data.trip] + "'/>");
+                post.find(".flag").attr("data-country", flags_hover_strings[data.trip]);
+                post.find(".flag").prepend(country);
+    	    }
     	} else if (bots.indexOf(data.trip) > -1) {
-    		var country = $("<img src='/icons/bot.png' style='height:20px;margin-bottom:-3px;'/>");
-	        country_name = "anna";
-	        post.find(".flag").attr("data-country", country_name);
-	        post.find(".flag").prepend(country);
+    	    var country = $("<img src='/icons/bot.png' style='height:20px;margin-bottom:-3px;'/>");
+	    country_name = "anna";
+	    post.find(".flag").attr("data-country", country_name);
+	    post.find(".flag").prepend(country);
     	} else {
-	        var country_name = "";
-	        //if (special_countries.indexOf(data.country)>-1) {
-	        if (data.country[2] == "-") {
-	            var state = $("<img src='/icons/countries/"+data.country+".png'/>");
-	            post.find(".flag").prepend(state);
-				if (special_countries && data.country in special_countries) {
-					country_name += special_countries[data.country]+", ";
-				} else {
-	            	country_name += data.country.slice(3)+", ";
-	            }
+	    var country_name = "";
+	    //if (special_countries.indexOf(data.country)>-1) {
+	    if (data.country[2] == "-") {
+	        var state = $("<img src='/icons/countries/"+data.country+".png'/>");
+	        post.find(".flag").prepend(state);
+		if (special_countries && data.country in special_countries) {
+		    country_name += special_countries[data.country]+", ";
+		} else {
+	            country_name += data.country.slice(3)+", ";
 	        }
-	        var country = $("<img src='/icons/countries/"+data.country.slice(0,2)+".png'/>");
-	        country_name += data.country_name ? data.country_name : data.country;
-	        post.find(".flag").attr("data-country", country_name);
-	        post.find(".flag").prepend(country);
+	    }
+	    var country = $("<img src='/icons/countries/"+data.country.slice(0,2)+".png'/>");
+	    country_name += data.country_name ? data.country_name : data.country;
+	    post.find(".flag").attr("data-country", country_name);
+	    post.find(".flag").prepend(country);
         }
         post.find(".flag").click(function(){
         	var language;
@@ -1213,8 +1311,16 @@ function apply_filter(posts) {
         }, true);
     } else if (value === "filter"){*/
         posts.toggleClass(function () {
-            var id = parseInt(this.id.match(/\d+/)[0], 10);
-            return ($.inArray(chat[id].convo, highlighted_convos) > -1) ? '' : 'chat_hidden';
+            if (chat_id === "moderate")
+            {
+                // For moderation show chat from all conversations
+                return '';
+            }
+            else
+            {
+                var id = parseInt(this.id.match(/\d+/)[0], 10);
+                return ($.inArray(chat[id].convo, highlighted_convos) > -1) ? '' : 'chat_hidden';
+            }
         }, true);
    // }
 }
@@ -1370,11 +1476,11 @@ function set_channel(new_channel, new_post, no_push_state, tab) {
     // indicate new channel
     $('#board_select').val(new_channel);
     $('#comment-form').attr('action', '/chat/' + new_channel);
-    title = "livechan" + (new_channel === "home" ? "" : " - /" + new_channel);
+    title = "livebunker" + (new_channel === "home" ? "" : " - /" + new_channel);
     window.document.title = title;
 
-    // hide form, sidebar on /home, /all pages
-    var show_form = (new_channel !== "all" && new_channel !== "home");
+    // hide form, sidebar on /home, /all, /moderate  pages
+    var show_form = (new_channel !== "all" && new_channel !== "home" && new_channel !== "moderate");
     $('.chats_container').toggleClass('chats_container_home', !show_form);
     $('.chats').toggleClass('chats_connected', show_form);
     $('.create, .sidebar, .alert_div').toggleClass('shown', show_form);
@@ -1463,7 +1569,7 @@ function set_channel(new_channel, new_post, no_push_state, tab) {
         });
     }
 
-    if (new_channel !== "home" && new_channel !== "all" && get_cookie("password_livechan") === '') {
+    if (new_channel !== "home" && new_channel !== "all" && new_channel !== "moderate" && get_cookie("password_livebunker") === '') {
         submit_captcha();
     }
 }

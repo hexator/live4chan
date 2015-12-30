@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Livebunker Moderation</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no">
+  <link type="text/css" rel="stylesheet" href="/css/moderate_style.css">
+  <link id="dynamic-favicon" rel="shortcut icon" href="/favicon.png" />
+  <!--[if lt IE 9]>
+      <script src="/js/html5shiv.min.js"></script>
+  <![endif]-->
+</head>
+
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script>!window.jQuery && document.write('<script src="/js/query.min.js"><\/script>')</script>
+    <script src ="/js/settings.js"></script>
+
+    <header class="header">
+      <!-- all but Home are filled in via settings.js -->
+      <select id="board_select" class="input_select left_float">
+	<option value="home">Home</option>
+      </select>
+      <span id="user_count" class="left_float" style="padding-left:5px;"></span>
+      <span id="tabs"class="left_float"></span>
+      <button id="settings_button" class="right_float">Settings</button>
+    </header>
+
+    <nav class="settings_nav hidden">
+      <ul class="settings_list">
+	<li>
+          <input type="checkbox" id="autoscroll" class="input_checkbox" checked value="checked"/>
+          <label for="autoscroll" style="font-size:14px" >Auto scroll</label>
+        </li>
+	<li>
+          <input type="checkbox" id="clearconvo" class="input_checkbox" checked value="checked"/>
+          <label for="clearconvo" style="font-size:14px" >Clear convo on submit</label>
+        </li>
+	<li>
+          <input type="checkbox" id="autosubmit" class="input_checkbox" checked value="checked"/>
+          <label for="autosubmit" style="font-size:14px" >Submit on enter</label>
+        </li>
+	<li>
+          <input type="checkbox" id="spoilers" class="input_checkbox" checked value="checked"/>
+          <label for="spoilers" style="font-size:14px" >BBCode</label>
+        </li>
+	<li>
+          <input type="range" id="volume" class="input_range" min="0" max="1" step="0.01" value="1"/>
+          <label for="volume" style="font-size:14px" >Volume</label>
+        </li>
+        <li>
+          <select id="thumbnail_mode" class="input_select">
+            <option value="links-only">Image links only</option>
+            <option value="static" selected>Static thumbnails</option>
+            <option value="animated">Animated thumbnails</option>
+          </select>
+        </li>
+	<li>
+          <select id="convo_filter" class="input_select">
+	    <option value="filter">Full Filter</option>
+	    <option value="no-filter" >No Conversation Filter</option>
+	    <option value="highlight">Highlight</option>
+	  </select>
+        </li>
+	<li>
+          <select id="theme_select" class="input_select">
+	    <option value="/style.css">Blue</option>
+	    <option value="/livechan.css">Livechan</option>
+	    <option value="/red.css">Red</option>
+	    <option value="/minimalist.css">Minimalist</option>
+	    <option value="/tomorrow.css">Tomorrow</option>
+	    <option value="/zenburn.css">Zenburn</option>
+	  </select>
+        </li>
+	<li><button id='sidebar_hider'>hide sidebar</button></li>
+      </ul>
+    </nav>
+
+    <section class="home_screen">
+      <article class="chat" id="chat_boards" style="opacity: 1;">
+	<section class="chat_file" style="display: none;">File:
+	  <a class="file_link" target="_blank"></a>
+	  <output class="file_data"></output>
+	</section>
+	<a target="_blank" class="chat_img_cont"></a>
+	<output class="chat_body" style="text-align: center;display: block;background:#00930a;">
+	  <br>
+	  <nav class="container" style="text-align:center;">
+	    <a class="link homescreen" href="/chat/int">international - /int </a>
+	    <a class="link homescreen" href="/chat/operate">Livebunker operations - /operate </a>
+	    <a class="link homescreen" href="/chat/sp">sports - /sp </a>
+	    <a class="link homescreen" href="/chat/tg">traditional gaming - /tg </a>
+	    <a class="link homescreen" href="/chat/v">vidya - /v </a>
+	  </nav>
+	  <br>
+	</output>
+      </article>
+	    
+      <article class="chat" id="chat_welcome" style="opacity: 1;">
+	<section class="chat_file" style="display: none;">File:
+	  <a class="file_link" target="_blank"></a>
+	  <output class="file_data"></output>
+	</section>
+	<a target="_blank" class="chat_img_cont"></a>
+	<output class="chat_body" style="text-align: center;display: block;padding:50px;">
+	</output>
+      </article>
+	
+      <article class="chat" id="chat_shill" style="opacity: 1;">
+	<section class="chat_file" style="display: none;">File:
+	  <a class="file_link" target="_blank"></a>
+	  <output class="file_data"></output>
+	</section>
+	<a target="_blank" class="chat_img_cont"></a>
+	<output class="chat_body" style="text-align: center;display: block">
+	  Livebunker is based on Livechan which is entirely open source, here is the Livechan
+	  <a href="https://github.com/emgram769/live4chan">code</a>.  Here is the Livebunker <a href="https://github.com/hexator/live4chan">fork</a>.
+	</output>
+      </article>
+    </section> <!-- home_screen -->
+
+    <section class="chats_container">
+      <section class="chats">
+      </section>
+    </section>
+
+    <aside class="sidebar">
+    </aside>
+
+    <iframe style="visibility:hidden;" id="miframe" name="miframe"></iframe>
+    <link rel="stylesheet" href="/plugins/code_highlight/css/default.css">
+    <script src="/plugins/code_highlight/highlight.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/js/socket.io-stream.min.js"></script>
+    <script src="/js/chat.js"></script>
+    <script src="/js/stream/sha256.js"></script>
+    <script src="/js/main_common.js"></script>
+    <script src="/js/main_moderator.js"></script>
+</body>
+</html>

@@ -1,16 +1,10 @@
 module.exports = {
     boards: [
-        'all', 'g', 'int', 'draw', 'hotel', 'r', 'v', 'pol', 'fit', 'cult',
-        's4s', 'dev' /*'a', 'b', 'c', 'd', 'e', 'f', 'film', 'g', 'gif', 'h', 'hr', 'k',
-        'm', 'o', 'p', 'r', 's', 't', 'u', 'v', 'vg', 'vr', 'w', 'wg', 'i',
-        'ic', 'r9k', 's4s', 'cm', 'hm', 'lgbt', 'y', '3', 'adv', 'an', 'asp',
-        'cgl', 'ck', 'co', 'diy', 'fa', 'fit', 'gd', 'hc', 'int', 'jp', 'lit',
-        'mlp', 'mu', 'n', 'out', 'po', 'pol', 'sci', 'soc', 'sp', 'tg', 'toy',
-        'trv', 'tv', 'vp', 'waifu', 'wsg', 'x', 'dev', 'tech', 'prog',
-        'dogecoin', 'fedoracoin', 'coin', 'q', 'cats', 'draw', 'hotel'*/
+        'all', 'int', 'operate', 'sp', 'tg', 'v'
     ],
 
     all_fields: 'chat name body convo convo_id count date trip',
+    moderate_fields: 'chat name body convo convo_id count date trip image image_filename image_filesize image_width image_height thumb identifier',
     board_fields: 'chat name body convo convo_id count date trip country country_name image image_filename image_filesize image_width image_height duration thumb identifier',
 
     admin_pw_file: 'admin_pw.txt',
@@ -31,11 +25,14 @@ module.exports = {
 
     /* Supported file types */
     image_formats: ['jpg', 'jpeg', 'png', 'gif'],
-    video_formats: ['ogv', 'webm'],
+    video_formats: ['ogv', 'webm', 'mp4'],
     audio_formats: ['ogg'],
 
     codec_names: {
-        video: ['theora', 'vp8', 'vp9'],
-        audio: ['vorbis', 'libopus']
-    }
+        video: ['theora', 'vp8', 'vp9', 'h264'],
+        audio: ['vorbis', 'libopus', 'aac']
+    },
+
+    /* Set to 1 if you want an IRC server, 0 otherwise */
+    irc_server: 0    
 };
