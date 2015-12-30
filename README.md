@@ -132,7 +132,7 @@ server {
 
 Relevant links
 ====
-Live instance: http://livechan.net
+Live instance: https://livebunker.rocks
 
 Contribute suggestions: https://code.stypi.com/emgram/LiveChan
 
