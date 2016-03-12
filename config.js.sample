@@ -1,6 +1,29 @@
 module.exports = {
     boards: [
-        'all', 'int', 'operate', 'sp', 'tg', 'v'
+	{
+		"name":"all",
+		"desc":"All"
+	},
+	{
+		"name":"int",
+		"desc":"international"
+	},
+	{
+		"name":"operate",
+		"desc":"Livebunker operations"
+	},
+	{
+		"name":"sp",
+		"desc":"sports"
+	},
+	{
+		"name":"tg",
+		"desc":"traditional gaming"
+	},
+	{
+		"name":"v",
+		"desc":"vidya"
+	}
     ],
 
     all_fields: 'chat name body convo convo_id count date trip',
